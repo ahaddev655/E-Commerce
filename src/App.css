@@ -1,0 +1,13 @@
+body {
+    background: #f8f8f8;
+}
+
+button {
+    cursor: pointer;
+}
+
+button,
+input,
+textarea {
+    outline: none;
+}
