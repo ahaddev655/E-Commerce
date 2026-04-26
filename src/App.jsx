@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import SplashScreen from "./pages/SplashScreen";
 import MainLayout from "./layouts/MainLayout";
+import HomePage from "./pages/HomePage";
 
 function App() {
   const routes = createBrowserRouter([
@@ -15,7 +16,7 @@ function App() {
       children: [
         {
           index: true,
-          element: "Home Page",
+          element: <HomePage />,
         },
       ],
     },
