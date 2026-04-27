@@ -1,10 +1,28 @@
+import {
+  Watch,
+  Zap,
+  Headphones,
+  Ear,
+  Smartphone,
+  LayoutGrid,
+  ArrowRight,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 import dummyImage from "../assets/dummy.jpg";
 
 function HomePage() {
+  const categories = [
+    { name: "Smartwatches", icon: Watch },
+    { name: "New Arrivals", icon: Zap },
+    { name: "Headphones", icon: Headphones },
+    { name: "Earbuds", icon: Ear },
+    { name: "Accessories", icon: Smartphone },
+    { name: "All Products", icon: LayoutGrid },
+  ];
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative pb-12">
+      <section className="relative pb-10">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-12 md:mb-0">
             <h1 className="text-5xl md:text-6xl font-black text-amber-900 leading-tight mb-6 italic tracking-tight">
@@ -17,12 +35,16 @@ function HomePage() {
               unwavering commitment to excellence.
             </p>
             <div className="flex flex-wrap gap-4">
-              <button className="bg-amber-600 text-white px-10 py-4 rounded-full font-bold hover:bg-amber-700 transition-all duration-250 ease-in-out shadow-lg shadow-amber-200">
-                Shop Collection
-              </button>
-              <button className="bg-white border-2 border-amber-200 text-amber-800 px-10 py-4 rounded-full font-bold hover:bg-amber-50  transition-all duration-250 ease-in-out">
-                New Arrivals
-              </button>
+              <Link to={"/main/shop"}>
+                <button className="bg-amber-600 text-white px-10 py-4 rounded-full font-bold hover:bg-amber-700 transition-all duration-250 ease-in-out shadow-lg shadow-amber-200">
+                  Shop Collection
+                </button>
+              </Link>
+              <Link to={"/main/new"}>
+                <button className="bg-white border-2 border-amber-200 text-amber-800 px-10 py-4 rounded-full font-bold hover:bg-amber-50  transition-all duration-250 ease-in-out">
+                  New Arrivals
+                </button>
+              </Link>
             </div>
           </div>
 
@@ -44,29 +66,50 @@ function HomePage() {
 
       {/* Categories Grid */}
       <section className="pb-12">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-amber-900 mb-2">
-            Shop by Category
-          </h2>
-          <div className="w-20 h-1 bg-amber-500 mx-auto rounded-full"></div>
-        </div>
-
-        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {["Premium Apparel", "Home Essentials", "Gift Sets"].map((cat) => (
-            <div
-              key={cat}
-              className="group relative h-64 bg-amber-50 rounded-2xl overflow-hidden cursor-pointer hover:shadow-xl transition-all border duration-250 ease-in-out border-amber-100"
-            >
-              <div className="absolute inset-0 bg-linear-to-t from-amber-900/40 to-transparent group-hover:from-amber-900/60 transition-all duration-250 ease-in-out"></div>
-              <div className="absolute bottom-6 left-6 text-white">
-                <h3 className="text-xl font-bold mb-1">{cat}</h3>
-                <p className="text-sm font-medium opacity-90">
-                  Explore More &rarr;
-                </p>
-              </div>
+        <div className="container mx-auto px-4">
+          {/* Header */}
+          <div className="flex items-center justify-between mb-10">
+            <div>
+              <h2 className="text-2xl font-bold text-amber-900 tracking-tight">
+                Shop by Category
+              </h2>
+              <div className="w-12 h-1 bg-amber-500 mt-1 rounded-full"></div>
             </div>
-          ))}
-        </div> */}
+            <button className="flex items-center gap-2 text-sm font-bold text-amber-600 hover:text-amber-700 transition-colors">
+              View All <ArrowRight size={16} />
+            </button>
+          </div>
+
+          {/* Circular Icon Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6">
+            {categories.map((cat) => {
+              const IconComponent = cat.icon;
+              return (
+                <div
+                  key={cat.name}
+                  className="group cursor-pointer flex flex-col items-center"
+                >
+                  {/* Rounded Icon Container */}
+                  <div className="relative mb-4 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center rounded-full bg-white border border-gray-100 shadow-sm transition-all duration-300 group-hover:bg-amber-600 group-hover:shadow-lg group-hover:-translate-y-1">
+                    <IconComponent
+                      size={32}
+                      strokeWidth={1.5}
+                      className="text-amber-700 group-hover:text-white transition-colors duration-300"
+                    />
+
+                    {/* Subtle Background Accent */}
+                    <div className="absolute inset-0 rounded-full bg-amber-500/5 scale-0 group-hover:scale-100 transition-transform duration-500"></div>
+                  </div>
+
+                  {/* Category Name */}
+                  <h3 className="text-xs font-bold text-gray-700 group-hover:text-amber-700 transition-colors uppercase tracking-widest text-center">
+                    {cat.name}
+                  </h3>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </section>
 
       {/* Featured Products */}
@@ -95,7 +138,7 @@ function HomePage() {
                   </div>
                   <div className="absolute bottom-0 inset-x-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                     <button className="w-full bg-amber-900 text-white py-2.5 rounded-lg text-sm font-bold shadow-xl">
-                      Add to Cart
+                      View the Collection
                     </button>
                   </div>
                 </div>

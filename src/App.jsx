@@ -18,6 +18,11 @@ function App() {
           index: true,
           element: <HomePage />,
         },
+
+        {
+          path: "s",
+          element: "<SearchPage />",
+        },
       ],
     },
   ]);

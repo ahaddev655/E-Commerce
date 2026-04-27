@@ -1,13 +1,13 @@
 body {
-    background: #f8f8f8;
+  background: #f8f8f8;
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 button,
 input,
 textarea {
-    outline: none;
+  outline: none;
 }
