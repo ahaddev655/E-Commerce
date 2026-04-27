@@ -35,12 +35,12 @@ function HomePage() {
               unwavering commitment to excellence.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link to={"/main/shop"}>
+              <Link to={"/main/category/all-products"}>
                 <button className="bg-amber-600 text-white px-10 py-4 rounded-full font-bold hover:bg-amber-700 transition-all duration-250 ease-in-out shadow-lg shadow-amber-200">
                   Shop Collection
                 </button>
               </Link>
-              <Link to={"/main/new"}>
+              <Link to={"/main/category/new-arrivals"}>
                 <button className="bg-white border-2 border-amber-200 text-amber-800 px-10 py-4 rounded-full font-bold hover:bg-amber-50  transition-all duration-250 ease-in-out">
                   New Arrivals
                 </button>
@@ -68,16 +68,13 @@ function HomePage() {
       <section className="pb-12">
         <div className="container mx-auto px-4">
           {/* Header */}
-          <div className="flex items-center justify-between mb-10">
-            <div>
-              <h2 className="text-2xl font-bold text-amber-900 tracking-tight">
+          <div className="mb-10">
+            <div className="text-center">
+              <h2 className="text-3xl font-bold text-amber-900 tracking-tight">
                 Shop by Category
               </h2>
-              <div className="w-12 h-1 bg-amber-500 mt-1 rounded-full"></div>
+              <div className="w-25 h-1 bg-amber-500 mt-1.5 rounded-full mx-auto"></div>
             </div>
-            <button className="flex items-center gap-2 text-sm font-bold text-amber-600 hover:text-amber-700 transition-colors">
-              View All <ArrowRight size={16} />
-            </button>
           </div>
 
           {/* Circular Icon Grid */}
@@ -85,27 +82,31 @@ function HomePage() {
             {categories.map((cat) => {
               const IconComponent = cat.icon;
               return (
-                <div
-                  key={cat.name}
-                  className="group cursor-pointer flex flex-col items-center"
+                <Link
+                  to={`/main/category/${cat.name.toLocaleLowerCase().replaceAll(" ", "-")}`}
                 >
-                  {/* Rounded Icon Container */}
-                  <div className="relative mb-4 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center rounded-full bg-white border border-gray-100 shadow-sm transition-all duration-300 group-hover:bg-amber-600 group-hover:shadow-lg group-hover:-translate-y-1">
-                    <IconComponent
-                      size={32}
-                      strokeWidth={1.5}
-                      className="text-amber-700 group-hover:text-white transition-colors duration-300"
-                    />
+                  <div
+                    key={cat.name}
+                    className="group cursor-pointer flex flex-col items-center"
+                  >
+                    {/* Rounded Icon Container */}
+                    <div className="relative mb-4 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center rounded-full bg-white border-2 border-gray-100 shadow-sm transition-all duration-300 group-hover:bg-amber-600 group-hover:shadow-lg group-hover:-translate-y-1">
+                      <IconComponent
+                        size={32}
+                        strokeWidth={1.5}
+                        className="text-amber-700 group-hover:text-white transition-colors duration-300"
+                      />
 
-                    {/* Subtle Background Accent */}
-                    <div className="absolute inset-0 rounded-full bg-amber-500/5 scale-0 group-hover:scale-100 transition-transform duration-500"></div>
+                      {/* Subtle Background Accent */}
+                      <div className="absolute inset-0 rounded-full bg-amber-500/5 scale-0 group-hover:scale-100 transition-transform duration-500"></div>
+                    </div>
+
+                    {/* Category Name */}
+                    <h3 className="text-xs font-bold text-gray-700 group-hover:text-amber-700 transition-colors uppercase tracking-widest text-center">
+                      {cat.name}
+                    </h3>
                   </div>
-
-                  {/* Category Name */}
-                  <h3 className="text-xs font-bold text-gray-700 group-hover:text-amber-700 transition-colors uppercase tracking-widest text-center">
-                    {cat.name}
-                  </h3>
-                </div>
+                </Link>
               );
             })}
           </div>
@@ -137,9 +138,11 @@ function HomePage() {
                     />
                   </div>
                   <div className="absolute bottom-0 inset-x-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <button className="w-full bg-amber-900 text-white py-2.5 rounded-lg text-sm font-bold shadow-xl">
-                      View the Collection
-                    </button>
+                    <Link to={`/main/product/flowing-airbuds`}>
+                      <button className="w-full bg-amber-900 text-white py-2.5 rounded-lg text-sm font-bold shadow-xl">
+                        View the Collection
+                      </button>
+                    </Link>
                   </div>
                 </div>
                 <h4 className="text-amber-900 font-bold">

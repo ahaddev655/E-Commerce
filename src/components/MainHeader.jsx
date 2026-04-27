@@ -1,4 +1,4 @@
-import { Search, ShoppingCart, UserCircle, X } from "lucide-react";
+import { Search, ShoppingCart, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import dummyImage from "../assets/dummy.jpg";
@@ -128,11 +128,6 @@ function MainHeader() {
             </button>
             <button type="button" onClick={() => setCartToggle(true)}>
               <ShoppingCart className="transition-colors duration-250 ease-in-out text-gray-700 hover:text-amber-600" />
-            </button>
-            <button type="button">
-              <Link to={"/main/profile"}>
-                <UserCircle className="transition-colors duration-250 ease-in-out text-gray-700 hover:text-amber-600" />
-              </Link>
             </button>
           </div>
         </div>
