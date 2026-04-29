@@ -138,7 +138,7 @@ function HomePage() {
                     />
                   </div>
                   <div className="absolute bottom-0 inset-x-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <Link to={`/main/product/flowing-airbuds`}>
+                    <Link to={`/main/product/accessories/flowing-airbuds`}>
                       <button className="w-full bg-amber-900 text-white py-2.5 rounded-lg text-sm font-bold shadow-xl">
                         View the Collection
                       </button>

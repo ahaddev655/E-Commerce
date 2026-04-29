@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import ProductDetails from "./pages/ProductDetails";
 import CategoryPage from "./pages/CategoryPage";
 import CheckoutPage from "./pages/CheckoutPage";
+import CheckoutSuccessPage from "./pages/CheckoutSuccessPage";
 
 function App() {
   const routes = createBrowserRouter([
@@ -26,7 +27,7 @@ function App() {
           element: "<SearchPage />",
         },
         {
-          path: "product/:product-name",
+          path: "product/:product-category/:product-name",
           element: <ProductDetails />,
         },
         {
@@ -38,6 +39,10 @@ function App() {
     {
       path: "/checkout",
       element: <CheckoutPage />,
+    },
+    {
+      path: "/success",
+      element: <CheckoutSuccessPage />,
     },
   ]);
   return <RouterProvider router={routes} />;
