@@ -1,3 +1,4 @@
+import {  useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import SplashScreen from "./pages/SplashScreen";
@@ -7,8 +8,10 @@ import ProductDetails from "./pages/ProductDetails";
 import CategoryPage from "./pages/CategoryPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import CheckoutSuccessPage from "./pages/CheckoutSuccessPage";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
+  const [search, setSearch] = useState("");
   const routes = createBrowserRouter([
     {
       path: "/",
@@ -16,7 +19,7 @@ function App() {
     },
     {
       path: "/main/",
-      element: <MainLayout />,
+      element: <MainLayout setSearch={setSearch} search={search} />,
       children: [
         {
           index: true,
@@ -24,7 +27,7 @@ function App() {
         },
         {
           path: "s",
-          element: "<SearchPage />",
+          element: <SearchPage />,
         },
         {
           path: "product/:product-category/:product-name",
