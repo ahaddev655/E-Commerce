@@ -27,7 +27,7 @@ function HomePage() {
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-12 pb-24 md:pt-20">
         {/* Background Decorative Blob */}
-        <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-amber-100 rounded-full blur-[120px] -z-10 opacity-60"></div>
+        <div className="absolute top-[-10%] right-[-10%] w-125 h-[5h-125amber-100 rounded-full blur-[120px] -z-10 opacity-60"></div>
 
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
           <div className="md:w-1/2 text-center md:text-left order-2 md:order-1">
@@ -67,7 +67,7 @@ function HomePage() {
           <div className="md:w-1/2 w-full order-1 md:order-2">
             <div className="relative group">
               <div className="absolute -inset-4 bg-amber-200/40 rounded-[3rem] blur-2xl group-hover:bg-amber-300/40 transition-colors duration-500"></div>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-[2.5rem] border-[6px] border-white shadow-2xl">
+              <div className="relative aspect-4/3 overflow-hidden rounded-[2.5rem] border-[6px] border-white shadow-2xl">
                 <img
                   src={dummyImage}
                   alt="Premium Watch"
@@ -118,7 +118,7 @@ function HomePage() {
                   className="group"
                 >
                   <div className="flex flex-col items-center">
-                    <div className="relative mb-6 w-24 h-24 flex items-center justify-center rounded-3xl bg-zinc-50 border border-zinc-100 transition-all duration-500 group-hover:bg-amber-600 group-hover:rounded-[2rem] group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-amber-200">
+                    <div className="relative mb-6 w-24 h-24 flex items-center justify-center rounded-3xl bg-zinc-50 border border-zinc-100 transition-all duration-500 group-hover:bg-amber-600 group-hover:rounded-4xl group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-amber-200">
                       <IconComponent
                         size={32}
                         strokeWidth={1.5}
@@ -159,7 +159,7 @@ function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[1, 2, 3, 4].map((i) => (
               <div key={i} className="group relative">
-                <div className="relative aspect-[1/1.2] rounded-[2rem] overflow-hidden bg-white border border-gray-100 shadow-sm group-hover:shadow-2xl transition-all duration-500">
+                <div className="relative aspect-[1/1.2] rounded-4xl overflow-hidden bg-white border border-gray-100 shadow-sm group-hover:shadow-2xl transition-all duration-500">
                   <img
                     src={dummyImage}
                     alt="Product"

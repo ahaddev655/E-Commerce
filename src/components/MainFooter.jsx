@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 // Restored missing icon imports
 import { ArrowRight } from "lucide-react";
+import PayPal from "../assets/paypal.jpg";
+import Visa from "../assets/visa.jpg";
+import MasterCard from "../assets/mastercard.jpg";
 
 function MainFooter() {
   const footerSections = [
@@ -43,16 +46,87 @@ function MainFooter() {
             {/* Social Links - RESTORED AND WORKING */}
             <div className="flex items-center gap-3">
               {[
-                { icon: "<Facebook size={18} />", label: "Facebook" },
-                { icon: "<Instagram size={18} />", label: "Instagram" },
-                { icon: "<Twitter size={18} />", label: "Twitter" },
-                { icon: "<Mail size={18} />", label: "Email" },
+                {
+                  label: "Facebook",
+                  icon: (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                    </svg>
+                  ),
+                },
+                {
+                  label: "Instagram",
+                  icon: (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                  ),
+                },
+                {
+                  label: "Twitter",
+                  icon: (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+                    </svg>
+                  ),
+                },
+                {
+                  label: "Email",
+                  icon: (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                      <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                  ),
+                },
               ].map((social, i) => (
                 <Link
                   key={i}
                   to="/"
                   aria-label={social.label}
-                  className="p-2.5 rounded-xl bg-zinc-50 text-zinc-400 hover:text-white hover:bg-amber-600 hover:-translate-y-1 transition-all duration-300"
+                  className="p-2.5 rounded-xl bg-zinc-50 text-zinc-400 hover:text-white hover:bg-amber-600 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center"
                 >
                   {social.icon}
                 </Link>
@@ -112,19 +186,19 @@ function MainFooter() {
           {/* Payment Logos - Updated with consistent sizing and modern URLs */}
           <div className="flex items-center gap-6">
             <img
-              src="https://raw.githubusercontent.com/a-bentley/payment-icons/main/lib/logos/paypal.svg"
-              alt="Paypal"
-              className="h-5 opacity-40 grayscale hover:grayscale-0 transition-all cursor-pointer"
+              src={PayPal}
+              alt="PayPal"
+              className="h-5 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300 cursor-pointer"
             />
             <img
-              src="https://raw.githubusercontent.com/a-bentley/payment-icons/main/lib/logos/visa.svg"
+              src={Visa}
               alt="Visa"
-              className="h-4 opacity-40 grayscale hover:grayscale-0 transition-all cursor-pointer"
+              className="h-3 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300 cursor-pointer"
             />
             <img
-              src="https://raw.githubusercontent.com/a-bentley/payment-icons/main/lib/logos/mastercard.svg"
+              src={MasterCard}
               alt="Mastercard"
-              className="h-6 opacity-40 grayscale hover:grayscale-0 transition-all cursor-pointer"
+              className="h-7 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300 cursor-pointer"
             />
           </div>
         </div>
