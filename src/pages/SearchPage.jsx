@@ -1,3 +1,4 @@
+import { CircleAlert } from "lucide-react";
 import React, { useState, useEffect } from "react";
 import { useOutletContext, Link } from "react-router-dom";
 
@@ -103,20 +104,8 @@ function SearchPage() {
         {/* Empty State */}
         {totalItems === 0 && (
           <div className="flex flex-col items-center justify-center py-32 text-center">
-            <div className="bg-white p-6 rounded-full shadow-sm mb-4">
-              <svg
-                className="w-10 h-10 text-stone-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="Open outline..."
-                ></path>
-              </svg>
+            <div className="bg-white p-6 rounded-full shadow-sm mb-4 grid place-items-center">
+              <CircleAlert size={26} />
             </div>
             <p className="text-stone-500 text-xl font-medium">
               We couldn't find any matches.
