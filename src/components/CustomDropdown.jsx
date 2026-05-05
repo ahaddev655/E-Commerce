@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { ChevronDown, Check, Filter } from "lucide-react";
+import { ChevronDown, Check } from "lucide-react";
 
 const CustomDropdown = ({ options, label, onSelect }) => {
   const [isOpen, setIsOpen] = useState(false);

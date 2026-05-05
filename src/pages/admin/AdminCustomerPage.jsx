@@ -1,18 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Search,
-  Filter,
-  User,
   Mail,
   Phone,
   MapPin,
-  Calendar,
-  ShoppingBag,
   Trash2,
   X,
-  MoreHorizontal,
-  ChevronRight,
   ShieldAlert,
   Users,
 } from "lucide-react";

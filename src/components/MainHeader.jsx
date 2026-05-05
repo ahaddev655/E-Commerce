@@ -1,4 +1,4 @@
-import { Search, ShoppingCart, X, ShoppingBag } from "lucide-react";
+import { Search, X, ShoppingBag } from "lucide-react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import CartItem from "./CartItem";

@@ -1,5 +1,5 @@
 import { CircleAlert } from "lucide-react";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useOutletContext, Link } from "react-router-dom";
 
 // Mock Data

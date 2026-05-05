@@ -1,16 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Plus,
-  Search,
   Filter,
   Edit3,
   Trash2,
   X,
   Image as ImageIcon,
   AlertCircle,
-  ChevronRight,
-  Info,
   Tag,
   Box,
 } from "lucide-react";

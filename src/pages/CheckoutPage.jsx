@@ -1,4 +1,3 @@
-import { useState } from "react";
 import dummyImage from "../assets/dummy.jpg";
 import { Link } from "react-router-dom";
 import { Lock, ShieldCheck, CreditCard, Truck } from "lucide-react";
