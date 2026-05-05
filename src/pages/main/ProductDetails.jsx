@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import dummyImage from "../../assets/dummy.jpg";
 
 function ProductDetails() {
   const [selectedImage, setSelectedImage] = useState(0);
+  const [count, setCount] = useState(1);
 
   const product = {
     name: "Signature Amber Airbuds",
@@ -20,23 +21,31 @@ function ProductDetails() {
     ],
   };
 
-  const saveToLocal = (id) => {
+  const saveToLocal = (id, quantity) => {
     const existingData = localStorage.getItem("collection") || "[]";
-
     const collection = JSON.parse(existingData);
 
-    if (!collection.includes(id)) {
-      collection.push(id);
+    const existingItem = collection.find((item) => item.id === id);
 
-      localStorage.setItem("collection", JSON.stringify(collection));
-      return;
+    if (existingItem) {
+      existingItem.quantity = quantity;
+    } else {
+      collection.push({ id, quantity });
     }
+
+    localStorage.setItem("collection", JSON.stringify(collection));
   };
+
+  useEffect(() => {
+    if (count < 1) {
+      setCount(1);
+    }
+  }, [count]);
 
   return (
     <div className="min-h-screen bg-[#fafafa] selection:bg-amber-200">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-        {/* LEFT SIDE: Image Gallery (Span 7) */}
+        {/* LEFT SIDE */}
         <div className="lg:col-span-7 space-y-6">
           <div className="relative aspect-4/5 rounded-3xl overflow-hidden bg-white shadow-2xl shadow-amber-900/5 border border-zinc-100">
             <AnimatePresence mode="wait">
@@ -73,7 +82,7 @@ function ProductDetails() {
           </div>
         </div>
 
-        {/* RIGHT SIDE: Product Info (Span 5) */}
+        {/* RIGHT SIDE */}
         <div className="lg:col-span-5 pt-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -114,10 +123,32 @@ function ProductDetails() {
               ))}
             </div>
 
+            {/* QUANTITY CONTROL (NEW) */}
+            <div className="flex items-center justify-between border border-zinc-200 rounded-2xl px-4 py-3">
+              <span className="text-sm font-medium text-zinc-500">
+                Quantity
+              </span>
+              <div className="flex items-center gap-4">
+                <button
+                  onClick={() => setCount(count - 1)}
+                  className="w-8 h-8 rounded-full bg-zinc-100 hover:bg-zinc-200"
+                >
+                  −
+                </button>
+                <span className="text-lg font-semibold">{count}</span>
+                <button
+                  onClick={() => setCount(count + 1)}
+                  className="w-8 h-8 rounded-full bg-zinc-100 hover:bg-zinc-200"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+
             <div className="flex flex-col gap-4">
               <button
                 className="group relative w-full bg-zinc-900 text-white py-5 rounded-2xl font-bold transition-all hover:bg-amber-600 active:scale-[0.98] shadow-xl shadow-zinc-200"
-                onClick={saveToLocal(product.name)}
+                onClick={() => saveToLocal(product.name, count)}
               >
                 Add to Collection
                 <span className="ml-2 transition-transform group-hover:translate-x-1 inline-block">

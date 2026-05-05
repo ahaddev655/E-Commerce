@@ -1,8 +1,9 @@
 import dummyImage from "../assets/dummy.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Lock, ShieldCheck, CreditCard, Truck } from "lucide-react";
 
 function CheckoutPage() {
+  const navigate = useNavigate();
   // Mock cart data
   const cartItems = [
     { id: 1, name: "Signature Amber Airbuds", price: 45.0, qty: 1 },
@@ -20,6 +21,11 @@ function CheckoutPage() {
     "w-full bg-stone-50 border-stone-100 rounded-xl focus:ring-2 focus:ring-amber-500/20 focus:border-amber-600 focus:bg-white transition-all p-3.5 text-sm outline-none border";
   const labelStyle =
     "block text-[11px] font-black uppercase tracking-widest text-stone-400 mb-2 ml-1";
+
+  const success = () => {
+    localStorage.removeItem("collection");
+    navigate("/success");
+  };
 
   return (
     <div className="container mx-auto lg:px-12 md:px-6 px-3 py-10">
@@ -163,7 +169,7 @@ function CheckoutPage() {
                         className="w-16 h-20 rounded-2xl object-cover border border-stone-800"
                         alt="product"
                       />
-                      <span className="absolute -top-2 -right-2 bg-amber-600 text-[10px] w-5 h-5 flex items-center justify-center rounded-full font-bold">
+                      <span className="absolute top-0 -right-2 bg-amber-600 text-[10px] w-5 h-5 flex items-center justify-center rounded-full font-bold">
                         {item.qty}
                       </span>
                     </div>
@@ -199,11 +205,12 @@ function CheckoutPage() {
                 </div>
               </div>
 
-              <Link to={"/success"}>
-                <button className="w-full bg-white text-stone-900 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-[11px] mt-8 hover:bg-amber-500 hover:text-white transition-all shadow-xl active:scale-[0.98]">
-                  Complete Purchase
-                </button>
-              </Link>
+              <button
+                onClick={success}
+                className="w-full bg-white text-stone-900 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-[11px] mt-8 hover:bg-amber-500 hover:text-white transition-all shadow-xl active:scale-[0.98]"
+              >
+                Complete Purchase
+              </button>
 
               <div className="mt-8 flex items-center justify-center gap-6 opacity-40">
                 <div className="flex items-center gap-1.5 text-[10px] font-bold">
