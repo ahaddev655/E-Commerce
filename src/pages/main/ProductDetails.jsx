@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import dummyImage from "../assets/dummy.jpg";
+import dummyImage from "../../assets/dummy.jpg";
 
 function ProductDetails() {
   const [selectedImage, setSelectedImage] = useState(0);

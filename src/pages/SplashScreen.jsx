@@ -4,11 +4,16 @@ import { useNavigate } from "react-router-dom";
 
 function SplashScreen() {
   const navigate = useNavigate();
-
+  const id = localStorage.getItem("id");
+  const token = localStorage.getItem("token");
   // Handle navigation with cleanup
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate("/main/");
+      if (id && token) {
+        navigate("/main/");
+        return;
+      }
+      navigate("/auth/");
     }, 3200);
     return () => clearTimeout(timer);
   }, [navigate]);

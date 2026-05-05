@@ -8,8 +8,8 @@ import {
   ShoppingBag,
   Star,
 } from "lucide-react";
-import dummyImage from "../assets/dummy.jpg";
-import CustomDropdown from "../components/CustomDropdown";
+import dummyImage from "../../assets/dummy.jpg";
+import CustomDropdown from "../../components/CustomDropdown";
 
 const sortOptions = [
   { label: "Featured", value: "featured" },

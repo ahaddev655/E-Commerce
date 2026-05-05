@@ -10,7 +10,7 @@ import {
   Star,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import dummyImage from "../assets/dummy.jpg";
+import dummyImage from "../../assets/dummy.jpg";
 
 function HomePage() {
   const categories = [
